@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(to right, #3498db, #c0392b);
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .white-box {
+      width: 800px;
+      height: 500px;
+      background-color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-text {
+      font-size: 20px;
+      color: black;
+      margin: 10px; /* 调整文字之间的间距 */
+    }
+  </style>
+  <title>Contact Page</title>
+</head>
+<body>
+  <div class="contact-background">
+    <!-- Empty container for background text -->
+  </div>
+  <div class="white-box">
+    <!-- Empty container for white box -->
+  </div>
+
+  <script>
+    // 获取窗口的宽度和高度
+    const windowWidth = window.innerWidth;
+    const windowHeight = window.innerHeight;
+
+    // 计算每行每列的文字数量
+    const contactsPerRow = Math.floor(windowWidth / 200);
+    const contactsPerColumn = Math.floor(windowHeight / 200);
+
+    // 获取白色框元素
+    const whiteBox = document.querySelector('.white-box');
+
+    // 动态生成 Contact 文字元素
+    for (let i = 0; i < contactsPerColumn; i++) {
+      for (let j = 0; j < contactsPerRow; j++) {
+        const contactText = document.createElement('div');
+        contactText.className = 'contact-text';
+        contactText.style.top = `${i * 200}px`;
+        contactText.style.left = `${j * 200}px`;
+        contactText.innerText = 'Contact';
+        whiteBox.appendChild(contactText);
+      }
+    }
+  </script>
+</body>
+</html>
+
+
